@@ -1,25 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+
+
 <html>
-<head>
-<title>Spring MVC Tutorial by Crunchify - Hello World Spring MVC
-	Example</title>
-<style type="text/css">
-body {
-	background-image: url('https://crunchify.com/bg.png');
-}
-</style>
-</head>
-<body>${message}
- 
-	<br>
-	<br>
-	<div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align:center;">
- 
-		Spring MCV Tutorial by <a href="https://crunchify.com">Crunchify</a>.
-		Click <a
-			href="https://crunchify.com/category/java-web-development-tutorial/"
-			target="_blank">here</a> for all Java and <a
-			href='https://crunchify.com/category/spring-mvc/' target='_blank'>here</a>
-		for all Spring MVC, Web Development examples.<br>
-	</div>
-</body>
+    <head>
+        <title>Spring MVC Appication</title>
+       
+    </head>
+    <body>
+        <form:form modelAttribute="office" method = "POST" action = "create">
+
+            <table style="font-family: verdana;">
+                <tr>
+                    <td>Code</td> 
+                    <td> <form:input type="text" path="code"  /></td>
+                    <td>City</td> 
+                    <td> <form:input type="text" path="city" /></td>
+                </tr>
+                <tr> 
+                    <td>Addr1</td> 
+                    <td> <form:input type="text" path="addr1"  /></td>
+                    <td>Addr2</td> 
+                    <td> <form:input type="text" path="addr2"  /></td>
+                </tr>
+                <tr>
+                    <td>Postal</td> 
+                    <td> <form:input type="text" path="postal"  /></td>
+                    <td>State</td> 
+                    <td>
+
+                        <form:select path="state" >
+                            <form:option value="Maharastra">Maharastra</form:option>
+                            <form:option value="kerala">kerala</form:option>
+                            <form:option value="goa">goa</form:option>
+                        </form:select> 
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Country</td> 
+                    <td> <form:input type="text" path="country"  /></td>
+                    <td>Territory</td> 
+                    <td>
+                        <form:input type="text" path="territory"  /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type = "submit" value = "Submit"/>        
+                    </td>
+                    <td>
+                        <input type="button" value="Clear"/>
+                    </td>
+                </tr>
+            </table>
+        </form:form>            
+    </body>
 </html>
