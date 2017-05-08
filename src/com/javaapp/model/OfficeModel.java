@@ -25,6 +25,7 @@ public class OfficeModel {
     String url = "jdbc:mysql://localhost:3306/master_data";
     Connection conn = null;
 
+    /*Method to create a new office in offices table*/
     public void createOffice(OfficeBean office) {
         String sql = "INSERT INTO offices "
                 + "(officeCode, city, phone,addressLine1,addressLine2,state,country,postalCode,territory)"
@@ -95,6 +96,7 @@ public class OfficeModel {
         return officeList;
     }
 
+    /*Method to get a particular office record from Officecode*/
     public OfficeBean getOffice(String code) {
         String sql = "select * from offices where officeCode= " + code;
         List<OfficeBean> officeList = new ArrayList<>();
@@ -130,10 +132,9 @@ public class OfficeModel {
 
     }
 
+    /*Method to update the existing office*/
     public void update(OfficeBean office) {
 
-//         String sql = "select * from offices set city='"+off.getCity()+"'addressLine1="+off.getAddr1()
-//                 + " where officeCode= " + off.getCode();
         String sql = "update offices set city=? ,addressLine1=?,addressLine2=?,state=?,country=?,postalCode=?,territory=? where officeCode =?";
 
         try {
@@ -165,6 +166,7 @@ public class OfficeModel {
 
     }
 
+    /*Method to delete the existing office*/
     public void delete(String code) {
 
         String sql = "delete from offices where officeCode= ?";

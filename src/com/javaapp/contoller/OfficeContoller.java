@@ -19,12 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class OfficeContoller {
-
-//    @RequestMapping("/welcome")
-//    public ModelAndView helloWorld() {
-//        return new ModelAndView("welcome", "office", new OfficeBean());
-////         return new ModelAndView("redirect:/enlist");
-//    }
+/*This Method calls create office method in Office Model */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@ModelAttribute("office") OfficeBean office, Model model) {
         /*Call to create Office Method*/
@@ -35,6 +30,7 @@ public class OfficeContoller {
         return ("result");
     }
 
+    /*this method call getOffice method to get a record for the code*/
     @RequestMapping("/result")
     public String enlist(Model model) {
         List<OfficeBean> list = new OfficeModel().getOffices();
@@ -43,6 +39,7 @@ public class OfficeContoller {
         return ("result");
     }
 
+    /*This method is used to set the value in edit form*/
     @RequestMapping(value = "/editoff/{id}")
     public ModelAndView edit(@PathVariable String id, Model model) {
         OfficeBean offBean = new OfficeBean();
@@ -50,18 +47,21 @@ public class OfficeContoller {
         return new ModelAndView("editOffice", "command", offBean);
     }
 
+    /*this method is used to save the edited office record*/
     @RequestMapping(value = "/editsave", method = RequestMethod.POST)
     public ModelAndView editsave(@ModelAttribute("offBean") OfficeBean off) {
         new OfficeModel().update(off);
         return new ModelAndView("redirect:/result");
     }
-
+    
+    /*this method is used to delete the selected office record*/
     @RequestMapping(value = "/deleteoff/{id}")
     public ModelAndView deleteoff(@PathVariable String id) {
         new OfficeModel().delete(id);
         return new ModelAndView("redirect:/result");
     }
 
+    /*this method is used for searching the user based on codeF*/
     @RequestMapping(value = "/search")
     public String search(@RequestParam String code, Model model) {
         // yourValue contain the value post from the html form

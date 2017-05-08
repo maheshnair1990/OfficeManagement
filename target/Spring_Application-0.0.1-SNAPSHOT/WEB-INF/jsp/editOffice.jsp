@@ -6,15 +6,15 @@
 <html>
     <head>
         <title>Spring MVC Appication</title>
-       
+
     </head>
     <body>
         <form:form  method = "POST" action = "/Spring_Application/editsave">
 
             <table style="font-family: verdana;">
                 <tr>
-                    
-                    <td> <form:hidden path="code"  /></td>
+
+
                     <td>City</td> 
                     <td> <form:input type="text" path="city" /></td>
                 </tr>
@@ -44,14 +44,13 @@
                     <td>Territory</td> 
                     <td>
                         <form:input type="text" path="territory"  /></td>
+                    <td>  <form:hidden path="code"  /></td>
                 </tr>
                 <tr>
                     <td>
                         <input type = "submit" value = "Submit"/>        
                     </td>
-                    <td>
-                        <input type="button" value="Clear"/>
-                    </td>
+                   
                 </tr>
             </table>
         </form:form>            

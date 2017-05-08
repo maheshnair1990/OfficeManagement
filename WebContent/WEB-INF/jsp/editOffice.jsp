@@ -50,9 +50,7 @@
                     <td>
                         <input type = "submit" value = "Submit"/>        
                     </td>
-                    <td>
-                        <input type="button" value="Clear"/>
-                    </td>
+                   
                 </tr>
             </table>
         </form:form>            
