@@ -164,4 +164,31 @@ public class OfficeModel {
         }
 
     }
+
+    public void delete(String code) {
+
+        String sql = "delete from offices where officeCode= ?";
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url, "root", "root");
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, code);
+            ps.executeUpdate();
+            ps.close();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+
+    }
+
 }

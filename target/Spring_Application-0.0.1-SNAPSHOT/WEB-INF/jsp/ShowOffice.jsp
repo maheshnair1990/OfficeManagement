@@ -21,10 +21,16 @@
                     <td>${off.code}</td>  
                     <td>${off.city}</td>  
                     <td>${off.postal}</td>   
-                    <td><a href="editoff/${off.code}">Edit</a>  ||   <a href="deleteemp/${off.code}">Delete</a>
+                    <td><a href="editoff/${off.code}">Edit</a>  ||   <a href="deleteoff/${off.code}">Delete</a>
                     </td>  
                 </tr>  
             </c:forEach>  
         </table>  
+        
+         <form action="search" method="post">  
+            <input type="text" name="code"/>
+            <input type="submit" value="Search"/>
+        </form>   
+        
     </body>
 </html>
